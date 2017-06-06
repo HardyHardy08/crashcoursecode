@@ -1,0 +1,11 @@
+dj-database-url==0.4.2
+dj-static==0.0.6
+Django==1.11.2
+django-bootstrap3==8.2.3
+django-mongodb-engine==0.6.0
+djangotoolbox==1.8.0
+gunicorn==19.7.1
+pkg-resources==0.0.0
+pymongo==3.4.0
+pytz==2017.2
+static3==0.7.0

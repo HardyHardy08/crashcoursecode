@@ -1,0 +1,31 @@
+{% extends "instabooks/base.html" %}
+
+{% block header %}
+
+<h1>Albums</h1>
+  
+{% endblock header %}
+
+
+{% block content %}
+
+<p>Albums</p>
+
+<ul>
+  {% for album in albums %}
+    <li>
+      <h3>
+        <a href="{% url 'instabooks:album' album.id %}">{{ album }}</a>
+      </h3>
+    </li>
+  {% empty %}
+    <li>No albums have been added yet :(</li>
+  {% endfor %}
+</ul>
+
+<h3>
+<a href="{% url 'instabooks:new_album' %}">Add a new album</a>
+</h3>
+  
+{% endblock content %}
+

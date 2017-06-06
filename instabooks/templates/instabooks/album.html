@@ -1,0 +1,44 @@
+{% extends "instabooks/base.html" %}
+
+{% block header %}
+
+<h2>{{ album }}</h2>
+  
+{% endblock header %}
+
+
+{% block content %}
+
+<p>Album: {{ album }}</p>
+
+<p>Entries:</p>
+<p>
+  <a href="{% url 'instabooks:new_entry' album.id %}">add a new entry</a>
+</p>
+<ul>
+  {% for entry in entries %}
+    <div class="panel panel-default" >
+      <div class="panel-heading">
+        <img style="margin: 10px auto; left: 50%;" src="{{ entry.image.url }}" width="50%" height="auto">
+        <h3>
+          {{ entry.date_added|date:'M d, Y H:i' }}
+          <small>
+            <a href="{% url 'instabooks:edit_entry' entry.id %}">edit entry</a>
+          </small>
+        </h3>
+        
+      </div>
+      <div class="panel-body">
+        {{ entry.text|linebreaks }}
+      </div>
+      
+    </div><!-- panel -->
+  {% empty %}
+    <li>
+      There are no entries for this album :(
+    </li>
+  {% endfor %}
+</ul>
+  
+{% endblock content %}
+

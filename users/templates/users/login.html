@@ -1,0 +1,26 @@
+{% extends "instabooks/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+
+<h2>Login to your account</h2>
+  
+{% endblock header %}
+
+
+{% block content %}
+
+<form method="post" action="{% url 'users:login' %}" class="form">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+
+  {% buttons  %}
+  <button name="submit" class="btn btn-primary">log in</button>
+  {% endbuttons %}  
+
+  {# this input next is used by django to redirect a user after they've successfully logged in #}
+  <input type="hidden" name="next" value="{% url 'instabooks:index' %}">
+</form>  
+
+{% endblock content %}
+

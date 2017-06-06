@@ -1,0 +1,17 @@
+{% extends "instabooks/base.html" %}
+
+{% block content %}
+
+<p>
+  <a href="{% url 'instabooks:album' album.id %}">{{ album }}</a>
+</p>
+  
+<p>Add a new entry:</p>
+  <form accept="{% url 'instabooks:new_entry' album.id%}" method="post"enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>add entry</button>
+  </form>
+  <a href="{% url 'instabooks:album' album.id %}">cancel</a>
+{% endblock content %}
+
