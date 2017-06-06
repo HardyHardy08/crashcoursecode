@@ -153,7 +153,7 @@ if os.getcwd() == '/app':
     # Allow all host headers
     ALLOWED_HOSTS = ['*']
 
-    # Staitc asset conifguration
+    # Static asset conifguration
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
     STATICFILES_DIRS = (
